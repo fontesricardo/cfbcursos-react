@@ -5,6 +5,7 @@ import './App.css'
 export default function App(){
 
   const [num, setNum]=useState(10)
+  const [nome, setNome]=useState('Ricardo')
 
   let n1=10
 
@@ -17,6 +18,7 @@ export default function App(){
     <>
       <p>Valor do state num: {num}</p>
       <p>Valor do state n1: {n1}</p>
+      <p>{nome}</p>
       <Numero num={num} setNum={setNum}/>
     </>
   )
