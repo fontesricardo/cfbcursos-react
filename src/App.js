@@ -1,25 +1,18 @@
 import React, {useState} from 'react'
-import Numero from './componentes/Numero'
-import './App.css'
+import Led from './componentes/Led'
 
 export default function App(){
 
-  const [num, setNum]=useState(10)
-  const [nome, setNome]=useState('Ricardo')
+  const [ligado, setLigado]=useState(false)
 
-  let n1=10
-
-  const n100=()=>{
-    n1=100
-    console.log(n1)
+  const cancelar=(obj)=>{
+    return obj.preventDefault()
   }
 
   return(
     <>
-      <p>Valor do state num: {num}</p>
-      <p>Valor do state n1: {n1}</p>
-      <p>{nome}</p>
-      <Numero num={num} setNum={setNum}/>
+       <Led ligado={ligado} setLigado={setLigado}/>
+       <a href='http://youtube.com/cfbcursos' target='_blank' onClick={(e)=>cancelar(e)} >CFB Cursos</a>
     </>
   )
 }
