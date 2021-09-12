@@ -2,33 +2,36 @@ import React, { useState } from 'react'
 
 export default function App(){
 
-  const [log, setLog]=useState(false)
+  const [cor, setCor]=useState(1)
 
-  const msglogin=()=>{
-    return 'Usuário Logado'
-  }
+  const vermelho={color:'#f00'}
+  const verde={color:'#0f0'}
+  const azul={color:'#00f'}
 
-  const msglogoff=()=>{
-    return 'Favor logar'
-  }
-
-  const cumprimento=()=>{
-    //const hora=new Date().getHours()
-    const hora = 22
-    if(hora >=0 && hora < 13){
-      return <p>Bom dia</p>
-    }else if(hora >=13 && hora < 18){
-      return <p>Boa tarde</p>
-    }else{
-      return <p>Boa noite</p>
+  const retornaCor=(c)=>{
+    if(c==1){
+      return vermelho
+    }else if(c==2){
+      return verde
+    }
+    else{
+      return azul
     }
   }
 
+  const mudaCor=()=>{
+    setCor(cor+1)
+    if(cor > 2){
+      setCor(1)
+    }
+  }
+
+  setInterval(mudaCor, 1000)
+
   return(
     <>
-      {cumprimento()}
-      <p>{log?msglogin():msglogoff()}</p>
-      <button onClick={()=>setLog(!log)}>{log?'Logoff':'Login'}</button>
+      <h1 style={retornaCor(cor)}>CFB Cursos</h1>
+      <button onClick={()=>mudaCor()}>Muda Cor</button>
     </>
   )
 }
