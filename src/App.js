@@ -1,12 +1,12 @@
 import React from 'react'
-import Classe from './componentes/Classe'
+import Carro from './componentes/Carro'
 
 export default function App(){
 
   return(
     <>
-      <h1>Componente de Classe</h1>
-      <Classe canal="CFB Cursos" curso="React.js"></Classe>
+      <h1>Componente Carro</h1>
+      <Carro/>
     </>
   )
 
